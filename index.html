@@ -1,93 +1,333 @@
-﻿<!doctype html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sunever Fashion | Mens Coat Collection</title>
+  <meta name="description" content="Sunever Fashion is an OEM and ODM menswear partner for European brands, retailers and distributors, specialising in tailored suits and formalwear.">
+  <title>Sunever Fashion | OEM & ODM Tailoring Partner</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header scrolled" id="top">
+  <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Sunever Fashion home">
       <span class="logo-placeholder" aria-hidden="true">SF</span>
       <span class="brand-name">Sunever Fashion</span>
     </a>
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="#collection">Collection</a>
-      <a href="#categories">Categories</a>
-      <a href="#contact">Contact</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span>
+      <span class="sr-only">Open menu</span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#oem" data-i18n="nav.oem">OEM & ODM</a>
+      <a href="#collection" data-i18n="nav.collection">Collection</a>
+      <a href="#coat-showcase" data-i18n="nav.coats">Coats</a>
+      <a href="#factory" data-i18n="nav.factory">Factory</a>
+      <a href="#terms" data-i18n="nav.terms">MOQ & Lead Time</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
-    <a class="button button-dark" href="#contact">Send Inquiry</a>
+
+    <div class="header-actions">
+      <button class="language-toggle" type="button" aria-label="Switch language">中文</button>
+      <a class="button button-dark header-inquiry" href="#inquiry" data-i18n="common.inquiry">Send Inquiry</a>
+    </div>
   </header>
 
   <main>
-    <section class="hero coat-hero">
-      <div class="hero-copy reveal visible">
-        <p class="eyebrow">Mens Outerwear · Sunever Fashion</p>
-        <h1>Outerwear,<br><em>clearly sorted.</em></h1>
-        <p class="hero-text">精选男士西服外套、大衣与短款夹克，并按廓形、门襟和面料纹理完成基础分类，便于客户快速浏览款式方向。</p>
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow" data-i18n="hero.eyebrow">OEM & ODM Tailoring · Europe-Focused Service</p>
+        <h1 data-i18n="hero.title">Your collection.<br><em>Precisely made.</em></h1>
+        <p class="hero-text" data-i18n="hero.text">Private-label suits and formalwear developed for European brands, retailers and distributors, with clear sampling, quality control and shipment coordination.</p>
         <div class="hero-actions">
-          <a class="button button-light" href="#collection">Explore Collection</a>
-          <a class="text-link" href="#contact"><span>Discuss Your Project</span> <span aria-hidden="true">↗</span></a>
+          <a class="button button-light" href="#collection" data-i18n="hero.explore">Explore Collection</a>
+          <a class="text-link" href="#inquiry"><span data-i18n="hero.discuss">Discuss Your Project</span> <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <figure class="hero-visual media-frame reveal visible">
-        <img src="image/coat-23.jpg" alt="Black and white herringbone men's coat">
+      <figure class="hero-visual media-frame media-slot reveal" data-image-slot="hero">
+        <!-- Add your hero image here. Recommended source size: 1600 x 2000 px. -->
       </figure>
-      <div class="hero-index" aria-hidden="true">17 Styles</div>
+      <div class="hero-index" aria-hidden="true">01 / 08</div>
+    </section>
+
+    <section class="statement section-pad" id="about">
+      <p class="section-number">01</p>
+      <div class="statement-content reveal">
+        <p class="eyebrow dark" data-i18n="about.eyebrow">A Practical Sourcing Partner</p>
+        <h2 data-i18n="about.title">Built for buyers who need product clarity, dependable follow-through and consistent tailored quality.</h2>
+        <div class="two-column-copy">
+          <p data-i18n="about.text1">Sunever Fashion coordinates product development and manufacturing for men's suits, blazers, trousers and occasionwear. One commercial contact follows your brief from costing and sampling to shipment.</p>
+          <p data-i18n="about.text2">We support European market requirements with fibre and care-label preparation, packaging specifications, inspection documentation and traceable order communication.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="oem section-pad" id="oem">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow dark" data-i18n="oem.eyebrow">OEM & ODM Manufacturing</p>
+          <h2 data-i18n="oem.title">Your specification,<br>or a faster starting point.</h2>
+        </div>
+        <p data-i18n="oem.intro">Choose full private-label development from your tech pack, or adapt a proven base style with your fabric, fit, trims and branding.</p>
+      </div>
+      <div class="model-grid">
+        <article class="model-panel reveal">
+          <span class="model-code">OEM</span>
+          <h3 data-i18n="oem.oem.title">Made to your specification</h3>
+          <p data-i18n="oem.oem.text">We translate your tech pack, reference sample and measurement chart into a production-ready tailored garment.</p>
+          <ul>
+            <li data-i18n="oem.oem.item1">Pattern and construction development</li>
+            <li data-i18n="oem.oem.item2">Nominated fabrics, trims and labels</li>
+            <li data-i18n="oem.oem.item3">Size-set and pre-production approval</li>
+          </ul>
+        </article>
+        <article class="model-panel inverse reveal">
+          <span class="model-code">ODM</span>
+          <h3 data-i18n="oem.odm.title">Adapt a market-ready base</h3>
+          <p data-i18n="oem.odm.text">Start from our existing blocks and construction options to reduce development time and focus on commercial details.</p>
+          <ul>
+            <li data-i18n="oem.odm.item1">Seasonal fabric and colour direction</li>
+            <li data-i18n="oem.odm.item2">Fit, lapel, pocket and lining options</li>
+            <li data-i18n="oem.odm.item3">Private labels and retail packaging</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="collection section-pad" id="collection">
-      <div class="section-heading reveal visible">
+      <div class="section-heading reveal">
         <div>
-          <p class="eyebrow dark">Curated Coat Line</p>
-          <h2>按款式陈列，<br>贴合商务男装网站风格。</h2>
+          <p class="eyebrow dark" data-i18n="collection.eyebrow">Our Collection</p>
+          <h2 data-i18n="collection.title">Modern tailoring,<br>made for your market.</h2>
         </div>
-        <p>图片已统一使用网页裁切比例展示，保留原图文件不破坏。分类覆盖短款夹克、单排扣大衣、双排扣大衣、纹理呢料与立领设计。</p>
+        <p data-i18n="collection.intro">Core categories can be developed across regular, slim and comfort fits, with fabric weights and construction adapted to your season and target price.</p>
       </div>
-      <div class="featured-grid">
-        <article><img src="image/coat-13.jpg" alt="Black stand collar short coat"><span>立领短款</span></article>
-        <article><img src="image/coat-18.jpg" alt="Black double breasted long coat"><span>双排扣大衣</span></article>
-        <article><img src="image/coat-21.jpg" alt="Light beige single breasted coat"><span>浅色翻领</span></article>
-        <article><img src="image/coat-28.jpg" alt="Blue textured coat"><span>蓝色呢料</span></article>
+
+      <div class="product-grid">
+        <article class="product-card reveal">
+          <div class="product-image media-frame media-slot" data-image-slot="classic-suits">
+            <!-- Add your classic suits image here. Recommended source size: 800 x 1000 px. -->
+          </div>
+          <div class="product-meta"><h3 data-i18n="product.classic">Classic Suits</h3><span>01</span></div>
+        </article>
+        <article class="product-card reveal">
+          <div class="product-image media-frame media-slot" data-image-slot="business-essentials">
+            <!-- Add your business essentials image here. Recommended source size: 800 x 1000 px. -->
+          </div>
+          <div class="product-meta"><h3 data-i18n="product.business">Business Essentials</h3><span>02</span></div>
+        </article>
+        <article class="product-card reveal">
+          <div class="product-image media-frame media-slot" data-image-slot="ceremony-tuxedo">
+            <!-- Add your ceremony and tuxedo image here. Recommended source size: 800 x 1000 px. -->
+          </div>
+          <div class="product-meta"><h3 data-i18n="product.ceremony">Ceremony & Tuxedo</h3><span>03</span></div>
+        </article>
       </div>
     </section>
 
-    <section class="coat-catalog section-pad" id="categories">
-      <div class="section-heading reveal visible">
+    <section class="coat-showcase section-pad" id="coat-showcase">
+      <div class="section-heading reveal">
         <div>
-          <p class="eyebrow dark">Style Categories</p>
-          <h2>外套款式分类</h2>
+          <p class="eyebrow dark" data-i18n="coat.eyebrow">Mens Coat Collection</p>
+          <h2 data-i18n="coat.title">Outerwear styles,<br>clearly classified.</h2>
         </div>
-        <p>点击分类查看对应款式；卡片内保留颜色、门襟、领型与面料信息。</p>
+        <p data-i18n="coat.intro">A curated coat lookbook organized by silhouette, placket, collar and fabric texture. Select a category, then open a style for full-image browsing.</p>
       </div>
-      <div class="filter-bar" aria-label="Coat category filters">
-        <button class="filter-button is-active" type="button" data-filter="all">全部</button>
-        <button class="filter-button" type="button" data-filter="short">短款夹克</button>
-        <button class="filter-button" type="button" data-filter="single">单排扣大衣</button>
-        <button class="filter-button" type="button" data-filter="double">双排扣大衣</button>
-        <button class="filter-button" type="button" data-filter="texture">纹理呢料</button>
-        <button class="filter-button" type="button" data-filter="stand">立领设计</button>
+      <div class="coat-feature-grid reveal">
+        <article><img src="image/coat-13.jpg" alt="Black stand collar short coat"><span data-i18n="coat.feature.stand">Stand collar short coat</span></article>
+        <article><img src="image/coat-18.jpg" alt="Black double breasted long coat"><span data-i18n="coat.feature.double">Double-breasted coat</span></article>
+        <article><img src="image/coat-21.jpg" alt="Light beige single breasted coat"><span data-i18n="coat.feature.light">Light tailored coat</span></article>
+        <article><img src="image/coat-28.jpg" alt="Blue textured coat"><span data-i18n="coat.feature.blue">Blue textured coat</span></article>
       </div>
-      <div class="lookbook" aria-live="polite"></div>
+      <div class="coat-filter-bar reveal" aria-label="Coat category filters">
+        <button class="coat-filter is-active" type="button" data-filter="all" data-i18n="coat.filter.all">All</button>
+        <button class="coat-filter" type="button" data-filter="short" data-i18n="coat.filter.short">Short Jackets</button>
+        <button class="coat-filter" type="button" data-filter="single" data-i18n="coat.filter.single">Single-Breasted</button>
+        <button class="coat-filter" type="button" data-filter="double" data-i18n="coat.filter.double">Double-Breasted</button>
+        <button class="coat-filter" type="button" data-filter="texture" data-i18n="coat.filter.texture">Textured Wool</button>
+        <button class="coat-filter" type="button" data-filter="stand" data-i18n="coat.filter.stand">Stand Collar</button>
+      </div>
+      <div class="coat-lookbook reveal" aria-live="polite"></div>
+    </section>
+    <section class="service section-pad" id="service">
+      <div class="service-intro reveal">
+        <p class="eyebrow" data-i18n="service.eyebrow">Our Service</p>
+        <h2 data-i18n="service.title">A reliable process from concept to delivery.</h2>
+        <p data-i18n="service.text">Clear communication and careful execution at every stage of your order.</p>
+      </div>
+      <ol class="service-list">
+        <li class="reveal"><span>01</span><div><h3 data-i18n="service.step1.title">Requirement Review</h3><p data-i18n="service.step1.text">Style, fabric, quantity, target price and delivery schedule.</p></div></li>
+        <li class="reveal"><span>02</span><div><h3 data-i18n="service.step2.title">Sampling & Development</h3><p data-i18n="service.step2.text">Pattern, fit and detail confirmation before production.</p></div></li>
+        <li class="reveal"><span>03</span><div><h3 data-i18n="service.step3.title">Production Control</h3><p data-i18n="service.step3.text">Progress tracking and quality inspection throughout production.</p></div></li>
+        <li class="reveal"><span>04</span><div><h3 data-i18n="service.step4.title">Global Delivery</h3><p data-i18n="service.step4.text">Packing, documentation and shipment coordination.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="factory section-pad" id="factory">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow dark" data-i18n="factory.eyebrow">Factory Capability</p>
+          <h2 data-i18n="factory.title">Control at the points<br>that shape the garment.</h2>
+        </div>
+        <p data-i18n="factory.text">Our production network is selected around tailored construction, repeatability and transparent quality checkpoints.</p>
+      </div>
+      <div class="factory-layout">
+        <figure class="factory-image media-frame media-slot reveal" data-image-slot="factory">
+          <!-- Add your factory image here. Recommended source size: 1400 x 900 px. -->
+        </figure>
+        <div class="capability-list reveal">
+          <article><span>01</span><div><h3 data-i18n="factory.cap1.title">Product development</h3><p data-i18n="factory.cap1.text">Pattern review, fit samples, fabric and trim confirmation.</p></div></article>
+          <article><span>02</span><div><h3 data-i18n="factory.cap2.title">Tailored construction</h3><p data-i18n="factory.cap2.text">Fusing, canvas options, pressing and shape retention controls.</p></div></article>
+          <article><span>03</span><div><h3 data-i18n="factory.cap3.title">Quality checkpoints</h3><p data-i18n="factory.cap3.text">Incoming material, inline workmanship and final inspection records.</p></div></article>
+          <article><span>04</span><div><h3 data-i18n="factory.cap4.title">Export preparation</h3><p data-i18n="factory.cap4.text">Buyer-specific labels, packing, carton marks and shipping documents.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="terms section-pad" id="terms">
+      <div class="terms-copy reveal">
+        <p class="eyebrow" data-i18n="terms.eyebrow">Commercial Planning</p>
+        <h2 data-i18n="terms.title">Clear starting points for your buying calendar.</h2>
+        <p data-i18n="terms.text">The figures below are indicative. Final MOQ and timing depend on fabric availability, construction, colour split, size range and approval speed.</p>
+        <a class="text-link" href="#inquiry"><span data-i18n="terms.cta">Request a project estimate</span><span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="terms-grid">
+        <article class="term-card reveal"><p data-i18n="terms.moq.label">Typical MOQ</p><strong data-i18n="terms.moq.value">From 100 pcs</strong><span data-i18n="terms.moq.note">per style / colour, subject to fabric</span></article>
+        <article class="term-card reveal"><p data-i18n="terms.sample.label">Development sample</p><strong data-i18n="terms.sample.value">10–14 days</strong><span data-i18n="terms.sample.note">after material and brief confirmation</span></article>
+        <article class="term-card reveal"><p data-i18n="terms.bulk.label">Bulk production</p><strong data-i18n="terms.bulk.value">35–50 days</strong><span data-i18n="terms.bulk.note">after PP approval and deposit</span></article>
+        <article class="term-card reveal"><p data-i18n="terms.delivery.label">Delivery support</p><strong data-i18n="terms.delivery.value">EXW / FOB / DDP</strong><span data-i18n="terms.delivery.note">options quoted by destination and volume</span></article>
+      </div>
+    </section>
+
+    <section class="inquiry section-pad" id="inquiry">
+      <div class="inquiry-copy reveal">
+        <p class="eyebrow" data-i18n="inquiry.eyebrow">Start A Conversation</p>
+        <h2 data-i18n="inquiry.title">Tell us what you are looking for.</h2>
+        <p data-i18n="inquiry.text">Share your product idea, reference images, expected quantity or target market. Our team will respond as soon as possible.</p>
+      </div>
+      <form class="inquiry-form reveal" id="inquiry-form">
+        <label><span data-i18n="form.name">Your Name *</span><input type="text" name="name" required></label>
+        <label><span data-i18n="form.company">Company</span><input type="text" name="company"></label>
+        <label><span data-i18n="form.email">Business Email *</span><input type="email" name="email" required></label>
+        <label>
+          <span data-i18n="form.country">Country / Region *</span>
+          <select name="country" required>
+            <option value="" selected disabled data-i18n="country.select">Select a country / region</option>
+            <option value="United States" data-i18n="country.us">United States</option>
+            <option value="United Kingdom" data-i18n="country.uk">United Kingdom</option>
+            <option value="Canada" data-i18n="country.ca">Canada</option>
+            <option value="Australia" data-i18n="country.au">Australia</option>
+            <option value="Germany" data-i18n="country.de">Germany</option>
+            <option value="France" data-i18n="country.fr">France</option>
+            <option value="Italy" data-i18n="country.it">Italy</option>
+            <option value="Spain" data-i18n="country.es">Spain</option>
+            <option value="Netherlands" data-i18n="country.nl">Netherlands</option>
+            <option value="Poland" data-i18n="country.pl">Poland</option>
+            <option value="Russia" data-i18n="country.ru">Russia</option>
+            <option value="United Arab Emirates" data-i18n="country.ae">United Arab Emirates</option>
+            <option value="Saudi Arabia" data-i18n="country.sa">Saudi Arabia</option>
+            <option value="Japan" data-i18n="country.jp">Japan</option>
+            <option value="South Korea" data-i18n="country.kr">South Korea</option>
+            <option value="Singapore" data-i18n="country.sg">Singapore</option>
+            <option value="Malaysia" data-i18n="country.my">Malaysia</option>
+            <option value="India" data-i18n="country.in">India</option>
+            <option value="South Africa" data-i18n="country.za">South Africa</option>
+            <option value="Other" data-i18n="country.other">Other country / region</option>
+          </select>
+        </label>
+        <label class="other-country-field" hidden>
+          <span data-i18n="form.otherCountry">Please enter your country / region *</span>
+          <input type="text" name="otherCountry" autocomplete="country-name" data-i18n-placeholder="form.otherCountryPlaceholder" placeholder="Country / region name">
+        </label>
+        <label class="full-width"><span data-i18n="form.message">How can we help? *</span><textarea name="message" rows="4" required></textarea></label>
+        <button class="button button-light form-submit" type="submit"><span data-i18n="form.submit">Submit Inquiry</span><span aria-hidden="true">↗</span></button>
+        <p class="form-status" role="status"></p>
+      </form>
     </section>
   </main>
 
+  <div class="coat-lightbox" id="coat-lightbox" aria-hidden="true" role="dialog" aria-label="Coat image viewer">
+    <button class="coat-lightbox-close" type="button" aria-label="Close viewer">×</button>
+    <button class="coat-lightbox-nav coat-lightbox-prev" type="button" aria-label="Previous coat">‹</button>
+    <figure class="coat-lightbox-frame">
+      <img class="coat-lightbox-image" src="" alt="">
+      <figcaption>
+        <strong class="coat-lightbox-title"></strong>
+        <span class="coat-lightbox-meta"></span>
+      </figcaption>
+    </figure>
+    <button class="coat-lightbox-nav coat-lightbox-next" type="button" aria-label="Next coat">›</button>
+  </div>
   <footer class="site-footer" id="contact">
     <div class="footer-brand">
       <span class="logo-placeholder light" aria-hidden="true">SF</span>
       <h2>Sunever Fashion</h2>
-      <p>Mens coat collection prepared for OEM & ODM outerwear display.</p>
+      <p data-i18n="footer.tagline">Your trusted partner in tailored menswear.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p class="footer-label" data-i18n="footer.email">Email</p>
+        <a href="mailto:contact@suneverfashion.com">contact@suneverfashion.com</a>
+      </div>
+      <div>
+        <p class="footer-label">WhatsApp</p>
+        <a href="https://wa.me/00000000000" target="_blank" rel="noopener">+00 000 0000 0000</a>
+      </div>
+      <div>
+        <p class="footer-label">WeChat</p>
+        <span>SuneverFashion</span>
+      </div>
+      <div>
+        <p class="footer-label" data-i18n="footer.social">Social</p>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+        </div>
+      </div>
     </div>
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Sunever Fashion. All rights reserved.</p>
-      <a href="#top">Back to top ↑</a>
+      <p>© <span id="year"></span> Sunever Fashion. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <a href="#top" data-i18n="footer.back">Back to top ↑</a>
     </div>
   </footer>
 
+  <a class="floating-inquiry" href="#inquiry"><span data-i18n="common.inquiry">Send Inquiry</span><span aria-hidden="true">↗</span></a>
+
+  <aside class="chat-widget" aria-label="Live chat">
+    <section class="chat-panel" id="chat-panel" aria-hidden="true" aria-labelledby="chat-title">
+      <header class="chat-header">
+        <div>
+          <p class="chat-kicker" data-i18n="chat.kicker">PRIVATE CLIENT SERVICE</p>
+          <h2 id="chat-title" data-i18n="chat.title">Speak with our team</h2>
+        </div>
+        <button class="chat-close" type="button" aria-label="Close chat">×</button>
+      </header>
+      <div class="chat-presence">
+        <span class="presence-dot" aria-hidden="true"></span>
+        <span data-i18n="chat.online">Online 08:00–22:00 · China Standard Time</span>
+      </div>
+      <div class="chat-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+      <div class="chat-typing" aria-live="polite"></div>
+      <form class="chat-form">
+        <label class="sr-only" for="chat-input" data-i18n="chat.label">Your message</label>
+        <textarea id="chat-input" rows="1" maxlength="600" data-i18n-placeholder="chat.placeholder" placeholder="Write a message…" required></textarea>
+        <button class="chat-send" type="submit" aria-label="Send message">↗</button>
+      </form>
+      <p class="chat-note" data-i18n="chat.note">Demo chat · connect a live service before publishing</p>
+    </section>
+    <button class="chat-launcher" type="button" aria-expanded="false" aria-controls="chat-panel">
+      <span class="chat-launcher-dot" aria-hidden="true"></span>
+      <span class="chat-launcher-label" data-i18n="chat.launcher">Chat</span>
+      <span class="chat-unread" aria-label="Unread messages" hidden>0</span>
+    </button>
+  </aside>
   <script src="script.js"></script>
+  <script src="coats.js"></script>
 </body>
 </html>
