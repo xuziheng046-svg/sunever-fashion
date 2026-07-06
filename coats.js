@@ -32,8 +32,7 @@ function renderCoatShowcase(filter = "all") {
   activeCoatList = filter === "all" ? coatItems : coatItems.filter((coat) => coat.category.includes(filter));
   lookbook.innerHTML = activeCoatList.slice(0, 6).map((coat) => {
     const fullIndex = activeCoatList.findIndex((item) => item.id === coat.id);
-    const hint = language === "zh" ? "点击打开大图，可连续查看当前分类的全部产品。" : "Open the viewer to browse every item in this category.";
-    return `<article class="coat-card"><button class="coat-open" type="button" data-coat-index="${fullIndex}" aria-label="${coat.name[language]}"><div class="coat-image" style="--position: ${coat.position}"><img src="image/coat-${coat.id}.jpg" alt="${coat.name[language]}" loading="lazy"></div><div class="coat-info"><h3>${coat.name[language]}</h3><p>${hint}</p><div class="coat-tags">${coat.tags[language].map((tag) => `<span>${tag}</span>`).join("")}</div></div></button></article>`;
+    return `<article class="coat-card"><button class="coat-open" type="button" data-coat-index="${fullIndex}" aria-label="${coat.name[language]}"><div class="coat-image" style="--position: ${coat.position}"><img src="image/coat-${coat.id}.jpg" alt="${coat.name[language]}" loading="lazy"></div><div class="coat-info"><h3>${coat.name[language]}</h3><div class="coat-tags">${coat.tags[language].map((tag) => `<span>${tag}</span>`).join("")}</div></div></button></article>`;
   }).join("");
 }
 
