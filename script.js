@@ -184,32 +184,34 @@ function connectLiveChat() {
   });
 }
 
-chatLauncher.addEventListener("click", () => setChatOpen(!chatWidget.classList.contains("open")));
-chatClose.addEventListener("click", () => setChatOpen(false));
-chatForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const text = chatInput.value.trim();
-  if (!text) return;
-  const message = { id: `user-${Date.now()}`, sender: "user", text, timestamp: Date.now() };
-  addChatMessage(message);
-  chatChannel?.postMessage(message);
-  if (chatSocket?.readyState === WebSocket.OPEN) chatSocket.send(JSON.stringify(message));
-  chatInput.value = "";
-  chatInput.style.height = "auto";
-  if (!chatSocketEndpoint) simulateTeamReply();
-});
-chatInput.addEventListener("input", () => {
-  chatInput.style.height = "auto";
-  chatInput.style.height = `${Math.min(chatInput.scrollHeight, 90)}px`;
-});
-chatInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter" && !event.shiftKey) {
+if (chatWidget) {
+  chatLauncher.addEventListener("click", () => setChatOpen(!chatWidget.classList.contains("open")));
+  chatClose.addEventListener("click", () => setChatOpen(false));
+  chatForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    chatForm.requestSubmit();
-  }
-});
-chatChannel?.addEventListener("message", (event) => addChatMessage(event.data, event.data.sender === "team"));
-connectLiveChat();
+    const text = chatInput.value.trim();
+    if (!text) return;
+    const message = { id: `user-${Date.now()}`, sender: "user", text, timestamp: Date.now() };
+    addChatMessage(message);
+    chatChannel?.postMessage(message);
+    if (chatSocket?.readyState === WebSocket.OPEN) chatSocket.send(JSON.stringify(message));
+    chatInput.value = "";
+    chatInput.style.height = "auto";
+    if (!chatSocketEndpoint) simulateTeamReply();
+  });
+  chatInput.addEventListener("input", () => {
+    chatInput.style.height = "auto";
+    chatInput.style.height = `${Math.min(chatInput.scrollHeight, 90)}px`;
+  });
+  chatInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      chatForm.requestSubmit();
+    }
+  });
+  chatChannel?.addEventListener("message", (event) => addChatMessage(event.data, event.data.sender === "team"));
+  connectLiveChat();
+}
 
 function closeMenu() {
   menu.classList.remove("open");
@@ -246,13 +248,6 @@ const pageObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.45 });
 pageSections.forEach((section) => pageObserver.observe(section));
-
-inquiryForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  event.currentTarget.querySelector(".form-status").textContent = translations[currentLanguage]["form.success"];
-  event.currentTarget.reset();
-  updateOtherCountryField();
-});
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 setLanguage(localStorage.getItem("sunever-language") || "en");
