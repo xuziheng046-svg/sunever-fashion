@@ -271,33 +271,8 @@
     </div>
   </footer>
 
-  <aside class="chat-widget" aria-label="Live chat">
-    <section class="chat-panel" id="chat-panel" aria-hidden="true" aria-labelledby="chat-title">
-      <header class="chat-header">
-        <div>
-          <p class="chat-kicker" data-i18n="chat.kicker">PRIVATE CLIENT SERVICE</p>
-          <h2 id="chat-title" data-i18n="chat.title">Speak with our team</h2>
-        </div>
-        <button class="chat-close" type="button" aria-label="Close chat">×</button>
-      </header>
-      <div class="chat-presence">
-        <span class="presence-dot" aria-hidden="true"></span>
-        <span data-i18n="chat.online">Online 08:00–22:00 · China Standard Time</span>
-      </div>
-      <div class="chat-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
-      <div class="chat-typing" aria-live="polite"></div>
-      <form class="chat-form">
-        <label class="sr-only" for="chat-input" data-i18n="chat.label">Your message</label>
-        <textarea id="chat-input" rows="1" maxlength="600" data-i18n-placeholder="chat.placeholder" placeholder="Write a message…" required></textarea>
-        <button class="chat-send" type="submit" aria-label="Send message">↗</button>
-      </form>
-    </section>
-    <button class="chat-launcher" type="button" aria-expanded="false" aria-controls="chat-panel">
-      <span class="chat-launcher-dot" aria-hidden="true"></span>
-      <span class="chat-launcher-label" data-i18n="chat.launcher">Chat</span>
-      <span class="chat-unread" aria-label="Unread messages" hidden>0</span>
-    </button>
-  </aside>
+  <a class="floating-inquiry" href="#inquiry"><span data-i18n="common.inquiry">Send Inquiry</span><span aria-hidden="true">↗</span></a>
+
   <script src="script.js"></script>
   <script src="coats.js"></script>
 </body>
