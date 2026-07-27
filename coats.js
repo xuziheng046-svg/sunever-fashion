@@ -1,92 +1,103 @@
-const coatItems = [
-  { id: 13, category: ["short", "stand"], position: "54% 40%", name: { en: "Black stand-collar short coat", zh: "黑色立领短款外套" }, tags: { en: ["Stand collar", "Short", "Black"], zh: ["立领", "短款", "黑色"] } },
-  { id: 14, category: ["short"], position: "55% 42%", name: { en: "Charcoal lapel work jacket", zh: "深灰翻领工装夹克" }, tags: { en: ["Lapel", "Patch pockets", "Charcoal"], zh: ["翻领", "贴袋", "深灰"] } },
-  { id: 15, category: ["short"], position: "55% 42%", name: { en: "Navy multi-pocket jacket", zh: "藏蓝多口袋夹克" }, tags: { en: ["Multi-pocket", "Navy", "Short"], zh: ["多口袋", "藏蓝", "短款"] } },
-  { id: 16, category: ["short", "single"], position: "56% 42%", name: { en: "Black short tailored coat", zh: "黑色翻领短西服" }, tags: { en: ["Lapel", "Short blazer", "Black"], zh: ["翻领", "短西服", "黑色"] } },
-  { id: 17, category: ["double"], position: "56% 42%", name: { en: "Black double-breasted long coat", zh: "黑色双排扣长大衣" }, tags: { en: ["Double-breasted", "Long", "Black"], zh: ["双排扣", "长款", "黑色"] } },
-  { id: 18, category: ["double"], position: "57% 42%", name: { en: "Black double-breasted tailored overcoat", zh: "黑色双排扣西服大衣" }, tags: { en: ["Double-breasted", "Peak lapel", "Long"], zh: ["双排扣", "宽驳领", "长款"] } },
-  { id: 19, category: ["single"], position: "56% 42%", name: { en: "Light grey single-breasted coat", zh: "浅灰单排扣大衣" }, tags: { en: ["Single-breasted", "Light grey", "Lapel"], zh: ["单排扣", "浅灰", "翻领"] } },
-  { id: 20, category: ["single"], position: "56% 43%", name: { en: "Navy single-breasted coat", zh: "藏蓝单排扣大衣" }, tags: { en: ["Single-breasted", "Navy", "Lapel"], zh: ["单排扣", "藏蓝", "翻领"] } },
-  { id: 21, category: ["single"], position: "57% 42%", name: { en: "Beige wool-touch lapel coat", zh: "米色翻领羊毛大衣" }, tags: { en: ["Beige", "Lapel", "Wool touch"], zh: ["米色", "翻领", "羊毛感"] } },
-  { id: 22, category: ["single", "texture"], position: "56% 42%", name: { en: "Taupe herringbone coat", zh: "棕灰人字纹大衣" }, tags: { en: ["Herringbone", "Taupe", "Lapel"], zh: ["人字纹", "棕灰", "翻领"] } },
-  { id: 23, category: ["single", "texture"], position: "55% 42%", name: { en: "Black-white herringbone coat", zh: "黑白人字纹大衣" }, tags: { en: ["Herringbone", "Black white", "Lapel"], zh: ["人字纹", "黑白", "翻领"] } },
-  { id: 24, category: ["single"], position: "56% 42%", name: { en: "Navy mid-long single coat", zh: "藏蓝单排扣中长大衣" }, tags: { en: ["Single-breasted", "Mid-long", "Navy"], zh: ["单排扣", "中长款", "藏蓝"] } },
-  { id: 25, category: ["single", "texture"], position: "56% 42%", name: { en: "Brown textured raglan coat", zh: "棕色纹理拉格兰大衣" }, tags: { en: ["Textured fabric", "Raglan sleeve", "Brown"], zh: ["纹理面料", "拉格兰袖", "棕色"] } },
-  { id: 26, category: ["short", "texture"], position: "56% 42%", name: { en: "Grey short wool-touch jacket", zh: "灰色翻领短款呢外套" }, tags: { en: ["Short", "Lapel", "Grey"], zh: ["短款", "翻领", "灰色"] } },
-  { id: 27, category: ["stand"], position: "57% 42%", name: { en: "Camel stand-collar mid coat", zh: "驼色立领中长大衣" }, tags: { en: ["Stand collar", "Camel", "Concealed placket"], zh: ["立领", "驼色", "暗门襟"] } },
-  { id: 28, category: ["single", "texture"], position: "56% 42%", name: { en: "Blue textured lapel coat", zh: "蓝色纹理翻领外套" }, tags: { en: ["Blue", "Textured fabric", "Lapel"], zh: ["蓝色", "纹理面料", "翻领"] } },
-  { id: 29, category: ["single"], position: "56% 42%", name: { en: "Navy relaxed lapel long coat", zh: "藏蓝翻领长大衣" }, tags: { en: ["Navy", "Long", "Lapel"], zh: ["藏蓝", "长款", "翻领"] } }
-];
+const productCategories = ["blazer", "suit", "coat", "double-face-coat"];
 
-let activeCoatList = coatItems;
-let activeCoatIndex = 0;
+const blazerItems = Array.from({ length: 20 }, (_, index) => {
+  const productNumber = index + 1;
+  return {
+    id: productNumber,
+    name: `Men's Blazer ${String(productNumber).padStart(2, "0")}`,
+    images: [1, 2, 3].map((view) => `image/blazers/blazer-${String(productNumber).padStart(2, "0")}-${view}.jpg`)
+  };
+});
 
-function coatLanguage() {
-  return document.documentElement.lang === "zh-CN" ? "zh" : "en";
+let activeCategory = "blazer";
+let activeProductIndex = 0;
+let activeImageIndex = 0;
+
+function blazerCard(product, productIndex) {
+  return `<article class="coat-card blazer-card">
+    <div class="blazer-gallery" data-product-index="${productIndex}">
+      <button class="coat-open blazer-main" type="button" data-product-index="${productIndex}" data-image-index="0" aria-label="Open ${product.name}">
+        <div class="coat-image"><img src="${product.images[0]}" alt="${product.name} — view 1" loading="lazy"></div>
+      </button>
+      <div class="blazer-thumbnails" aria-label="${product.name} views">
+        ${product.images.map((image, imageIndex) => `<button class="blazer-thumb${imageIndex === 0 ? " is-active" : ""}" type="button" data-image-index="${imageIndex}" aria-label="Show view ${imageIndex + 1}"><img src="${image}" alt="" loading="lazy"></button>`).join("")}
+      </div>
+      <div class="coat-info"><h3>${product.name}</h3><p>Three coordinated views of one product.</p></div>
+    </div>
+  </article>`;
 }
 
-function renderCoatShowcase(filter = "all") {
+function renderProductCategory(category = "blazer") {
   const lookbook = document.querySelector(".coat-lookbook");
   if (!lookbook) return;
-  const language = coatLanguage();
-  activeCoatList = filter === "all" ? coatItems : coatItems.filter((coat) => coat.category.includes(filter));
-  lookbook.innerHTML = activeCoatList.slice(0, 6).map((coat) => {
-    const fullIndex = activeCoatList.findIndex((item) => item.id === coat.id);
-    return `<article class="coat-card"><button class="coat-open" type="button" data-coat-index="${fullIndex}" aria-label="${coat.name[language]}"><div class="coat-image" style="--position: ${coat.position}"><img src="image/coat-${coat.id}.jpg" alt="${coat.name[language]}" loading="lazy"></div><div class="coat-info"><h3>${coat.name[language]}</h3><div class="coat-tags">${coat.tags[language].map((tag) => `<span>${tag}</span>`).join("")}</div></div></button></article>`;
-  }).join("");
+  activeCategory = category;
+  if (category === "blazer") {
+    lookbook.innerHTML = blazerItems.map(blazerCard).join("");
+    return;
+  }
+  const label = document.querySelector(`.coat-filter[data-category="${category}"]`)?.textContent || "This category";
+  lookbook.innerHTML = `<p class="category-empty">${label} products will be added soon.</p>`;
 }
 
-function openCoatLightbox(index) {
+function openProductLightbox(productIndex, imageIndex = 0) {
   const lightbox = document.querySelector("#coat-lightbox");
-  if (!lightbox || !activeCoatList.length) return;
-  activeCoatIndex = (index + activeCoatList.length) % activeCoatList.length;
-  const coat = activeCoatList[activeCoatIndex];
-  const language = coatLanguage();
+  if (!lightbox || activeCategory !== "blazer") return;
+  activeProductIndex = productIndex;
+  activeImageIndex = (imageIndex + 3) % 3;
+  const product = blazerItems[activeProductIndex];
   const image = lightbox.querySelector(".coat-lightbox-image");
-  image.src = `image/coat-${coat.id}.jpg`;
-  image.alt = coat.name[language];
-  lightbox.querySelector(".coat-lightbox-title").textContent = coat.name[language];
-  lightbox.querySelector(".coat-lightbox-meta").textContent = `${activeCoatIndex + 1} / ${activeCoatList.length}`;
+  image.src = product.images[activeImageIndex];
+  image.alt = `${product.name} — view ${activeImageIndex + 1}`;
+  lightbox.querySelector(".coat-lightbox-title").textContent = product.name;
+  lightbox.querySelector(".coat-lightbox-meta").textContent = `View ${activeImageIndex + 1} / 3`;
   lightbox.classList.add("open");
   lightbox.setAttribute("aria-hidden", "false");
 }
 
-function closeCoatLightbox() {
+function closeProductLightbox() {
   const lightbox = document.querySelector("#coat-lightbox");
   if (!lightbox) return;
   lightbox.classList.remove("open");
   lightbox.setAttribute("aria-hidden", "true");
 }
 
-function bindCoatGallery() {
+function bindProductGallery() {
   document.addEventListener("click", (event) => {
+    const thumbnail = event.target.closest(".blazer-thumb");
+    if (thumbnail) {
+      const gallery = thumbnail.closest(".blazer-gallery");
+      const imageIndex = Number(thumbnail.dataset.imageIndex);
+      const product = blazerItems[Number(gallery.dataset.productIndex)];
+      gallery.querySelector(".blazer-main img").src = product.images[imageIndex];
+      gallery.querySelector(".blazer-main img").alt = `${product.name} — view ${imageIndex + 1}`;
+      gallery.querySelector(".blazer-main").dataset.imageIndex = String(imageIndex);
+      gallery.querySelectorAll(".blazer-thumb").forEach((item) => item.classList.toggle("is-active", item === thumbnail));
+      return;
+    }
+
     const openButton = event.target.closest(".coat-open");
-    if (openButton) openCoatLightbox(Number(openButton.dataset.coatIndex));
-    if (event.target.closest(".coat-lightbox-close")) closeCoatLightbox();
-    if (event.target.closest(".coat-lightbox-prev")) openCoatLightbox(activeCoatIndex - 1);
-    if (event.target.closest(".coat-lightbox-next")) openCoatLightbox(activeCoatIndex + 1);
-    if (event.target.id === "coat-lightbox") closeCoatLightbox();
+    if (openButton) openProductLightbox(Number(openButton.dataset.productIndex), Number(openButton.dataset.imageIndex));
+    if (event.target.closest(".coat-lightbox-close")) closeProductLightbox();
+    if (event.target.closest(".coat-lightbox-prev")) openProductLightbox(activeProductIndex, activeImageIndex - 1);
+    if (event.target.closest(".coat-lightbox-next")) openProductLightbox(activeProductIndex, activeImageIndex + 1);
+    if (event.target.id === "coat-lightbox") closeProductLightbox();
   });
 
   document.querySelectorAll(".coat-filter").forEach((button) => {
     button.addEventListener("click", () => {
       document.querySelectorAll(".coat-filter").forEach((item) => item.classList.remove("is-active"));
       button.classList.add("is-active");
-      renderCoatShowcase(button.dataset.filter);
+      renderProductCategory(button.dataset.category);
     });
-  });
-
-  document.querySelector(".language-toggle")?.addEventListener("click", () => {
-    window.setTimeout(() => renderCoatShowcase(document.querySelector(".coat-filter.is-active")?.dataset.filter || "all"), 0);
   });
 
   document.addEventListener("keydown", (event) => {
     if (!document.querySelector("#coat-lightbox.open")) return;
-    if (event.key === "Escape") closeCoatLightbox();
-    if (event.key === "ArrowLeft") openCoatLightbox(activeCoatIndex - 1);
-    if (event.key === "ArrowRight") openCoatLightbox(activeCoatIndex + 1);
+    if (event.key === "Escape") closeProductLightbox();
+    if (event.key === "ArrowLeft") openProductLightbox(activeProductIndex, activeImageIndex - 1);
+    if (event.key === "ArrowRight") openProductLightbox(activeProductIndex, activeImageIndex + 1);
   });
 }
 
-bindCoatGallery();
-renderCoatShowcase();
+bindProductGallery();
+renderProductCategory();
