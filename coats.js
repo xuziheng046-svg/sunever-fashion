@@ -36,7 +36,8 @@ function renderProductCategory(category = "blazer") {
     return;
   }
   const label = document.querySelector(`.coat-filter[data-category="${category}"]`)?.textContent || "This category";
-  lookbook.innerHTML = `<p class="category-empty">${label} products will be added soon.</p>`;
+  const emptyMessage = translations[currentLanguage]?.["category.empty"] || "Products will be added soon.";
+  lookbook.innerHTML = `<p class="category-empty">${label} · ${emptyMessage}</p>`;
 }
 
 function openProductLightbox(productIndex, imageIndex = 0) {
@@ -89,6 +90,10 @@ function bindProductGallery() {
       button.classList.add("is-active");
       renderProductCategory(button.dataset.category);
     });
+  });
+
+  document.querySelector(".language-toggle")?.addEventListener("click", () => {
+    window.setTimeout(() => renderProductCategory(activeCategory), 0);
   });
 
   document.addEventListener("keydown", (event) => {
