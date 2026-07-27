@@ -107,19 +107,11 @@
         <p data-i18n="collection.intro">A focused view of current series, organized by construction details and seasonal fabric direction.</p>
       </div>
       <div class="product-showcase" id="product-showcase">
-        <div class="coat-feature-grid reveal">
-          <article><img src="image/coat-13.jpg" alt="Black stand collar short coat"><span data-i18n="productGallery.feature.stand">Stand collar style</span></article>
-          <article><img src="image/coat-18.jpg" alt="Black double breasted long coat"><span data-i18n="productGallery.feature.double">Double-breasted style</span></article>
-          <article><img src="image/coat-21.jpg" alt="Light beige single breasted coat"><span data-i18n="productGallery.feature.light">Light tailored style</span></article>
-          <article><img src="image/coat-28.jpg" alt="Blue textured coat"><span data-i18n="productGallery.feature.blue">Blue textured style</span></article>
-        </div>
-        <div class="coat-filter-bar reveal" aria-label="Product series filters">
-          <button class="coat-filter is-active" type="button" data-filter="all" data-i18n="productGallery.filter.all">All</button>
-          <button class="coat-filter" type="button" data-filter="short" data-i18n="productGallery.filter.short">Short Styles</button>
-          <button class="coat-filter" type="button" data-filter="single" data-i18n="productGallery.filter.single">Single-Breasted</button>
-          <button class="coat-filter" type="button" data-filter="double" data-i18n="productGallery.filter.double">Double-Breasted</button>
-          <button class="coat-filter" type="button" data-filter="texture" data-i18n="productGallery.filter.texture">Textured Fabric</button>
-          <button class="coat-filter" type="button" data-filter="stand" data-i18n="productGallery.filter.stand">Stand Collar</button>
+        <div class="coat-filter-bar reveal" aria-label="Product categories">
+          <button class="coat-filter is-active" type="button" data-category="blazer">MEN'S BLAZER</button>
+          <button class="coat-filter" type="button" data-category="suit">MEN'S SUIT</button>
+          <button class="coat-filter" type="button" data-category="coat">MEN'S COAT</button>
+          <button class="coat-filter" type="button" data-category="double-face-coat">LADY'S DOUBLE FACE COAT</button>
         </div>
         <div class="coat-lookbook reveal" aria-live="polite"></div>
       </div>
@@ -236,9 +228,9 @@
     </section>
   </main>
 
-  <div class="coat-lightbox" id="coat-lightbox" aria-hidden="true" role="dialog" aria-label="Coat image viewer">
-    <button class="coat-lightbox-close" type="button" aria-label="Close viewer">×</button>
-    <button class="coat-lightbox-nav coat-lightbox-prev" type="button" aria-label="Previous coat">‹</button>
+  <div class="coat-lightbox" id="coat-lightbox" aria-hidden="true" role="dialog" aria-label="Product image viewer">
+    <button class="coat-lightbox-close" type="button" aria-label="Close product image viewer">×</button>
+    <button class="coat-lightbox-nav coat-lightbox-prev" type="button" aria-label="Previous product image">‹</button>
     <figure class="coat-lightbox-frame">
       <img class="coat-lightbox-image" src="" alt="">
       <figcaption>
@@ -246,7 +238,7 @@
         <span class="coat-lightbox-meta"></span>
       </figcaption>
     </figure>
-    <button class="coat-lightbox-nav coat-lightbox-next" type="button" aria-label="Next coat">›</button>
+    <button class="coat-lightbox-nav coat-lightbox-next" type="button" aria-label="Next product image">›</button>
   </div>
   <footer class="site-footer" id="contact">
     <div class="footer-brand">
