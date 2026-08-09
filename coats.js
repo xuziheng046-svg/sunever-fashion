@@ -1,10 +1,10 @@
 const productCategories = ["blazer", "suit", "coat", "mens-double-face-coat", "double-face-coat"];
 
-function makeProducts({ count, name, directory, prefix, imageCounts = {} }) {
+function makeProducts({ count, name, directory, prefix, imageCounts = {}, defaultImageCount = 3 }) {
   return Array.from({ length: count }, (_, index) => {
     const number = index + 1;
     const padded = String(number).padStart(2, "0");
-    const imageCount = imageCounts[number] || 3;
+    const imageCount = imageCounts[number] || defaultImageCount;
     return {
       id: number,
       name: `${name} ${padded}`,
@@ -15,6 +15,7 @@ function makeProducts({ count, name, directory, prefix, imageCounts = {} }) {
 
 const productsByCategory = {
   blazer: makeProducts({ count: 20, name: "Men's Blazer", directory: "blazers", prefix: "blazer" }),
+  coat: makeProducts({ count: 21, name: "Men's Coat", directory: "mens-coat", prefix: "mens-coat", defaultImageCount: 1 }),
   "mens-double-face-coat": makeProducts({ count: 13, name: "Men's Double Face Coat", directory: "double-face-men", prefix: "mens-double-face" }),
   "double-face-coat": makeProducts({ count: 20, name: "Lady's Double Face Coat", directory: "double-face-women", prefix: "ladys-double-face", imageCounts: { 3: 2, 4: 2, 17: 2 } })
 };
@@ -25,15 +26,15 @@ let activeProductIndex = 0;
 let activeImageIndex = 0;
 
 function productCard(product, productIndex) {
-  const summary = product.images.length === 3 ? "Front, back and inside views." : "Front and back views.";
+  const summary = product.images.length === 1 ? "Product view." : product.images.length === 3 ? "Front, back and inside views." : "Front and back views.";
   return `<article class="coat-card blazer-card">
     <div class="blazer-gallery" data-product-index="${productIndex}">
       <button class="coat-open blazer-main" type="button" data-product-index="${productIndex}" data-image-index="0" aria-label="Open ${product.name}">
         <div class="coat-image"><img src="${product.images[0]}" alt="${product.name} — front view" loading="lazy"></div>
       </button>
-      <div class="blazer-thumbnails" aria-label="${product.name} views">
+      ${product.images.length > 1 ? `<div class="blazer-thumbnails" aria-label="${product.name} views">
         ${product.images.map((image, imageIndex) => `<button class="blazer-thumb${imageIndex === 0 ? " is-active" : ""}" type="button" data-image-index="${imageIndex}" aria-label="Show ${viewNames[imageIndex].toLowerCase()} view"><img src="${image}" alt="" loading="lazy"></button>`).join("")}
-      </div>
+      </div>` : ""}
       <div class="coat-info"><h3>${product.name}</h3><p>${summary}</p></div>
     </div>
   </article>`;
