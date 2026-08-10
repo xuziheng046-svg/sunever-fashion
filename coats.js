@@ -15,6 +15,7 @@ function makeProducts({ count, name, directory, prefix, imageCounts = {}, defaul
 
 const productsByCategory = {
   blazer: makeProducts({ count: 20, name: "Men's Blazer", directory: "blazers", prefix: "blazer" }),
+  suit: makeProducts({ count: 18, name: "Men's Suit", directory: "mens-suit", prefix: "mens-suit", defaultImageCount: 1 }),
   coat: makeProducts({ count: 21, name: "Men's Coat", directory: "mens-coat", prefix: "mens-coat", defaultImageCount: 1 }),
   "mens-double-face-coat": makeProducts({ count: 13, name: "Men's Double Face Coat", directory: "double-face-men", prefix: "mens-double-face" }),
   "double-face-coat": makeProducts({ count: 20, name: "Lady's Double Face Coat", directory: "double-face-women", prefix: "ladys-double-face", imageCounts: { 3: 2, 4: 2, 17: 2 } })
